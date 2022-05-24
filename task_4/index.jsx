@@ -26,3 +26,9 @@ const ChildComponent = forwardRef((props,ref) => {
 
     return <div ref={ref}>{isActive ? <div>child component</div> : null}</div>;
 });
+
+/**
+ * Описание:
+ * С помощью хука `useImperativeHandle` создаем и дополняем набор общедоступных методов
+ * у функционального компонента, для взаимодействия с ними из родительского компонента
+ */

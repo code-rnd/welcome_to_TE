@@ -61,7 +61,6 @@ const getRusult = (list: ITile[]): IResult => {
         return {
             totalPriceSum: isActive ? acc.totalPriceSum + price : acc.totalPriceSum,
             tileCount: isActive ? acc.tileCount + 1 : acc.tileCount,
-            averagePriceSum: 0
         }
     }, initialValue);
 
@@ -70,3 +69,9 @@ const getRusult = (list: ITile[]): IResult => {
         averagePriceSum: Math.floor(result.totalPriceSum / result.tileCount)
     }
 }
+
+/**
+ * Описание:
+ * С помощью метода `.reduce` проходим по входному массиву и
+ * считаем и суммируем нужные нам параметры
+ */

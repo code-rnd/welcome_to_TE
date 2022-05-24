@@ -17,3 +17,8 @@ const MainComponent = () => {
 const ChildComponent = memo(({ makeLog }) => (
     <button onClick={makeLog}>say Hi from MainComponent</button>
 ));
+
+/**
+ * Описание:
+ * Хэширование коллбека
+ */

@@ -14,3 +14,8 @@ const MyComponent = memo(({ mouseEnterCallbak, content, imgSrc, imgAlt }) => {
         </div>
     )
 });
+
+/**
+ * Описание:
+ * Объединение двух компонентов в один
+ */

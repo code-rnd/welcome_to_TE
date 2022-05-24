@@ -24,3 +24,8 @@ const ChildComponent = memo(({ user: { name, age } }) => {
         <div>user name: {name}, user age: {age}</div>
     );
 });
+
+/**
+ * Описание:
+ * Определение значений по умолчанию вне компонента
+ */
