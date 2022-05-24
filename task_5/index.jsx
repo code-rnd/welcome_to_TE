@@ -9,8 +9,11 @@ reduxState = {
     }
 }
 
+const getUserData = () => useSelector(reduxState => reduxState.userData);
+const isEqualityUserData = (prev, next) => JSON.stringify(prev) === JSON.stringify(next)
+
 const MainComponent = () => {
-    const userData = useSelector(reduxState => reduxState.userData); // subscribe and get only userData object
+    const userData = useSelector(getUserData, isEqualityUserData); // subscribe and get only userData object
 
     // ... other code
 };

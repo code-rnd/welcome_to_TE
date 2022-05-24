@@ -1,7 +1,12 @@
 import { useState, Fragment, memo } from 'react';
 
+const deafultProps = {
+    name: 'unknown',
+    age: null
+}
+
 const MainComponent = ({
-    user = { name: 'unknown', age: null } // default value for `props.user`
+    user = deafultProps // default value for `props.user`
 }) => {
     const [ _, updateComponent ] = useState(); // change state for force component updating
 

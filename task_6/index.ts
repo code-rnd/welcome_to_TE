@@ -5,9 +5,9 @@ interface ITile {
 }
 
 interface IResult {
-  totalPriceSum: number,   // summary price of all active tiles
-  tileCount: number        // summary active tile's amount
-  averagePriceSum: number  // average price amount of all active tiles
+    totalPriceSum: number,   // summary price of all active tiles
+    tileCount: number        // summary active tile's amount
+    averagePriceSum: number  // average price amount of all active tiles
 }
 
 // array of available tiles
@@ -48,6 +48,25 @@ const tileArr: Array<ITile> = [
         isActive: true
     },
 ];
-
 // write You code here
 // const result: IResult = ...
+
+const initialValue = {
+    totalPriceSum: 0,
+    tileCount: 0,
+}
+
+const getRusult = (list: ITile[]): IResult => {
+    const result = list.reduce((acc, {price, isActive}) => {
+        return {
+            totalPriceSum: isActive ? acc.totalPriceSum + price : acc.totalPriceSum,
+            tileCount: isActive ? acc.tileCount + 1 : acc.tileCount,
+            averagePriceSum: 0
+        }
+    }, initialValue);
+
+    return {
+        ...result,
+        averagePriceSum: Math.floor(result.totalPriceSum / result.tileCount)
+    }
+}
