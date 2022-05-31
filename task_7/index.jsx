@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const MyComponentFirst = ({ mouseEnterCallbak, children }) => {
+export const MyComponent = ({ mouseEnterCallbak, children }) => {
     const [isActive, setActive] = useState(false);
 
     const mouseEnterHandler = () => {
@@ -15,17 +15,6 @@ export const MyComponentFirst = ({ mouseEnterCallbak, children }) => {
     );
 };
 /**
- * Описание MyComponentFirst:
+ * Описание:
  * Вся логика трех компонент, ужата в одном, с помощью проброса children
- */
-
-
-export const MyComponentSecond = ({ mouseEnterCallbak, children }) => (
-    <div onMouseEnter={() => mouseEnterCallbak}>
-        {children}
-    </div>
-);
-/**
- * Описание MyComponentSecond:
- * Если флаг isActive служит исключительно для стилизации, то логику я бы вынес в стили, на псевдоэлементы
  */
