@@ -1,21 +1,31 @@
-import { useState, memo, useCallback } from 'react';
+import { useState } from "react";
 
-const MyComponent = memo(({ mouseEnterCallbak, content, imgSrc, imgAlt }) => {
-    const [ isActive, setActive ] = useState(false);
+export const MyComponentFirst = ({ mouseEnterCallbak, children }) => {
+    const [isActive, setActive] = useState(false);
 
-    const mouseEnterHandler = useCallback(() => {
+    const mouseEnterHandler = () => {
         setActive(true);
         mouseEnterCallbak();
-    },[mouseEnterCallbak]);
+    };
 
     return (
-        <div onMouseEnter={mouseEnterHandler} className={ isActive ? 'active': '' }>
-            {content ? <p>BLock2 content: {content}</p> : <img src={imgSrc} alt={imgAlt} />}
+        <div onMouseEnter={mouseEnterHandler} className={isActive ? "active" : ""}>
+            {children}
         </div>
-    )
-});
-
+    );
+};
 /**
- * Описание:
- * Объединение двух компонентов в один
+ * Описание MyComponentFirst:
+ * Вся логика трех компонент, ужата в одном, с помощью проброса children
+ */
+
+
+export const MyComponentSecond = ({ mouseEnterCallbak, children }) => (
+    <div onMouseEnter={() => mouseEnterCallbak}>
+        {children}
+    </div>
+);
+/**
+ * Описание MyComponentSecond:
+ * Если флаг isActive служит исключительно для стилизации, то логику я бы вынес в стили, на псевдоэлементы
  */
